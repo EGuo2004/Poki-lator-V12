@@ -7,3 +7,9 @@ def squareRoot(x, errorBound):
   while(abs(x - (i * i)) > errorBound):
     i = (i + x/i)/2
   return i
+
+def factorial(x):
+  sum = 1
+  for i in range(1,x+1):
+    sum *= i
+  return sum
