@@ -30,14 +30,12 @@ def csc(x):
 def sec(x):
   denominator = cos(x)
   if (denominator - 0 < radius_of_0): return None
-
   return 1/denominator
 
 def cot(x):
   denominator = sin(x)
   if (denominator - 0 < radius_of_0): return None
   return(cos(x)/denominator)
-
 
 def piExact(x):
   output = 3
