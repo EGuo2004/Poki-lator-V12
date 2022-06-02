@@ -1,3 +1,4 @@
+import ourBaseFunc as BF
 def gcd(a, b):
   while (b != 0):
       t = b
@@ -21,4 +22,8 @@ def median(arr):
   else:
     return arr[center + 0.5]
 
+def nCr(n,r):
+  return (BF.factorial(n))/(BF.factorial(r) * BF.factorial(n-r))
 
+def nPr(n,r):
+  return (BF.factorial(n))/(BF.factorial(n-r))
