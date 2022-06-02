@@ -1,5 +1,8 @@
 import gui
 gui.init()
+# pokimain, emeru, sykkono, jodi, 
+
+
 # gui stuff
 
 
@@ -7,6 +10,8 @@ gui.init()
 # import time
 # import ourBaseFunc #Sqrt, Fac
 # import ourTrigFunc
+
+
 
 # #import ourTrigFunc
 # inital = time.time()
