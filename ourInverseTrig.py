@@ -13,4 +13,12 @@ def arctan(x,y=5):
     next_term /= 2*n+1
     n+=1
   return sum
-                                  
+
+
+def arcsin(x, y=5):
+  error_bound = 10**(-1 * abs(y))
+  sum = 0
+  while ()
+
+
+  

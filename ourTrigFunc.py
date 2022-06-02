@@ -2,8 +2,10 @@ pi = 3.14159265359
 #how close to 0 that it is treated as 0
 radius_of_0 = 10**-10
 import ourBaseFunc
-
+import error
+# trig functions raise 
 def sin(x):
+  error.ValidateTrig(x)
   x = x % (2*pi)
   output = 0
   for i in range(10):
@@ -11,6 +13,7 @@ def sin(x):
   return output
 
 def cos(x):
+  error.ValidateTrig(x)
   x = x % (2*pi)
   output = 0
   for i in range(10):
