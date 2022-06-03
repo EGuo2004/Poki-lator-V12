@@ -1,4 +1,5 @@
 import ourBaseFunc as BF
+import ourCalcFunc as CF
 def gcd(a, b):
   while (b != 0):
       t = b
@@ -27,3 +28,10 @@ def nCr(n,r):
 
 def nPr(n,r):
   return (BF.factorial(n))/(BF.factorial(n-r))
+
+def sigma(function,start,end):
+  sum = 0
+  for i in range(start,end+1):
+    sum += CF.calculateFunction(function,i)
+  return sum
+

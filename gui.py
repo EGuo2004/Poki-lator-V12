@@ -18,6 +18,7 @@ relationships = {
 
 
 def init():
+
   ws = tk.Tk()
   ws.title("Poki-lator")
   ws.geometry('400x600')
@@ -35,7 +36,6 @@ def init():
   N = tk.N
   W = tk.W
   canvas.create_image(100,100,anchor=tk.CENTER, image=img)     
-
   
   canvas1.create_window(200, 180, window=button1)
   ws.mainloop()
