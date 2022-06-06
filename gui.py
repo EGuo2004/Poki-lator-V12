@@ -1,4 +1,6 @@
-import tkinter as tk
+from tkinter import *
+from PIL import Image, ImageTk
+
 import ourBaseFunc
 errorBound = 0.00001
 
@@ -18,24 +20,49 @@ relationships = {
 
 
 def init():
-
-  ws = tk.Tk()
+  global ws
+  ws = Tk()
   ws.title("Poki-lator")
-  ws.geometry('400x600')
-  greeting = tk.Label(text="Hello, Tkinter")
-  greeting.pack(side=tk.TOP)
+  
+  #Get the current screen width and height of computer // not accurate
+  global screen_width, screen_height
+  screen_width = ws.winfo_screenwidth()
+  screen_height = ws.winfo_screenheight()
 
-  canvas1 = tk.Canvas(ws, width = 400, height = 300)
-  entry1 = tk.Entry (ws) 
-  canvas1.create_window(200, 140, window=entry1)
-  canvas1.pack()
+
+  ws.geometry('%dx%d+%d+%d' % (screen_width, screen_height, 0, 0))
   
-  canvas = tk.Canvas(ws, width = 300, height = 300)      
-  canvas.pack()      
-  img = tk.PhotoImage(file="Poki-Pics/POKI.png")    
-  N = tk.N
-  W = tk.W
-  canvas.create_image(100,100,anchor=tk.CENTER, image=img)     
+  print(f"{screen_width}, {screen_height}")
+  #init main drawable canvas
+  canvas = Canvas(ws, width=screen_width, height=screen_height, bg='yellow')
+  canvas.pack(anchor = CENTER)
+  # start off in homepage
+  home(canvas)
+
+def home(target):
+  title = Text(target, width=screen_width, height=1)
+  title.tag_configure("Title", justify='center')
+
+  title.pack(anchor=N)
+  title.insert(END, "Homepage")
+  title.config(state=DISABLED)
+  title.tag_add("Title", "1.0", "end")
+
+  # image slideshow layer
   
-  canvas1.create_window(200, 180, window=button1)
+  slideshow_base = Canvas(target, width = screen_width//2, height = screen_height//2)   
+  slideshow_base.configure(bg='blue')   
+  
+  img = PhotoImage(file="Pics/Poki-Pics/POKI.png")
+  slideshow_base.pack(anchor=CENTER)  
+  ws.update()
+
+  slideshow_base.create_oval(0, 0, slideshow_base.winfo_width(), slideshow_base.winfo_height())
+  # image will be centered in the center of the page
+  # print('%d, %d' % (canvas.winfo_width()//2, canvas.winfo_height()//2))
+  slideshow_base.create_image(slideshow_base.winfo_width()//2, slideshow_base.winfo_height()//2, anchor=CENTER, image=img)   
+  
   ws.mainloop()
+
+  
+  
