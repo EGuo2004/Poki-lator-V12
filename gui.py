@@ -57,9 +57,10 @@ def home(target):
   
   # testing centering + image rendering
   img = PhotoImage(file="Pics/poki-Pics/POKI.png")
+  im = img
   slideshow_base.pack(anchor=CENTER)  
   ws.update()
-  slideshow_base.create_image(slideshow_base.winfo_width()//2, slideshow_base.winfo_height()//2, anchor=CENTER, image=img)   
+  slideshow_base.create_image(slideshow_base.winfo_width()//2, slideshow_base.winfo_height()//2, anchor=CENTER, image=im)   
   # a and b values of the slideshow oval
   slideshow_a = slideshow_base.winfo_width()
   slideshow_b = slideshow_base.winfo_height()
@@ -81,28 +82,30 @@ def home(target):
     image_y = slideshow_b/2 * math.sin(delta_theta * streamer_index + starting_theta) + slideshow_b/2 
 
     # test drawing a circle object at each image locations
-    slideshow_base.create_oval(image_x-25, image_y-25, image_x+25, image_y+25, fill="red")
+    # slideshow_base.create_oval(image_x-25, image_y-25, image_x+25, image_y+25, fill="red")
     
     
     # Marker
     # # render image according to streamer name
     #   # Read the Image
     print(f"Pics/{streamer_name}-Pics/home.png" )
-    # image = Image.open(f"Pics/{streamer_name}-Pics/home.png")
-    #   # Resize the image
-    # resize_image = image.resize((40, 60))
-    #     # resize_image.show() # test what the image looks like
-    # img = ImageTk.PhotoImage(resize_image)
+    image = Image.open(f"Pics/{streamer_name}-Pics/home.png")
+      # Resize the image
+    resize_image = image.resize((40, 60))
+        # resize_image.show() # test what the image looks like
+    img = ImageTk.PhotoImage(resize_image)
 
-    # # test the computer locations along the ellipse
+    # test the computer locations along the ellipse
 
-    # def buttonPressed():
-    #   print("button Pressed")
+    def buttonPressed():
+      print("button Pressed")
     
-    # btn = Button(slideshow_base, text = 'Click Me !', command=buttonPressed, image = img)
-    # btn.place(x=image_x, y=image_y)
+    btn = Button(slideshow_base, text = 'Click Me !', command=buttonPressed, image = img)
+    btn.image = img
+    btn.place(x=image_x, y=image_y - 50)
 
-    # # slideshow_base.create_image(image_x, image_y, anchor=CENTER, image=img)   
+    # just image 
+    # slideshow_base.create_image(image_x, image_y, anchor=CENTER, image=img)   
     streamer_index += 1
   # error 45 
   
