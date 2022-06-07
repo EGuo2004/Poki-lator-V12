@@ -1,3 +1,4 @@
+from cmath import pi
 from tkinter import *
 import math
 from PIL import Image, ImageTk
@@ -69,31 +70,39 @@ def home(target):
   
   delta_theta = 2 * math.pi / len(home_order)
   streamer_index = 0
-  starting_theta = 0
+  starting_theta = -3/2 * math.pi
 
   # error
+  # poki image disappears
+  # images dont show up , only one button shows up at the lower right corner
   for streamer_name in home_order:
     # find location along the elipse
-    image_x = slideshow_a * math.cos(delta_theta * streamer_index + starting_theta)
-    image_y = slideshow_b * math.sin(delta_theta * streamer_index + starting_theta)
-    # render image according to streamer name
-      # Read the Image
-    print(f"Pics/{streamer_name}-Pics/home.png" )
-    image = Image.open(f"Pics/{streamer_name}-Pics/home.png")
-      # Resize the image
-    resize_image = image.resize((40, 60))
-        # resize_image.show() # test what the image looks like
-    img = ImageTk.PhotoImage(resize_image)
+    image_x = slideshow_a/2 * math.cos(delta_theta * streamer_index + starting_theta) + slideshow_a/2 
+    image_y = slideshow_b/2 * math.sin(delta_theta * streamer_index + starting_theta) + slideshow_b/2 
 
-    # test the computer locations along the ellipse
-
-    def buttonPressed():
-      print("button Pressed")
+    # test drawing a circle object at each image locations
+    slideshow_base.create_oval(image_x-25, image_y-25, image_x+25, image_y+25, fill="red")
     
-    btn = Button(slideshow_base, text = 'Click Me !', command=buttonPressed, image = img)
-    btn.place(x=image_x, y=image_y)
+    
+    # Marker
+    # # render image according to streamer name
+    #   # Read the Image
+    print(f"Pics/{streamer_name}-Pics/home.png" )
+    # image = Image.open(f"Pics/{streamer_name}-Pics/home.png")
+    #   # Resize the image
+    # resize_image = image.resize((40, 60))
+    #     # resize_image.show() # test what the image looks like
+    # img = ImageTk.PhotoImage(resize_image)
 
-    # slideshow_base.create_image(image_x, image_y, anchor=CENTER, image=img)   
+    # # test the computer locations along the ellipse
+
+    # def buttonPressed():
+    #   print("button Pressed")
+    
+    # btn = Button(slideshow_base, text = 'Click Me !', command=buttonPressed, image = img)
+    # btn.place(x=image_x, y=image_y)
+
+    # # slideshow_base.create_image(image_x, image_y, anchor=CENTER, image=img)   
     streamer_index += 1
   # error 45 
   
