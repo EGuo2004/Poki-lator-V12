@@ -1,5 +1,6 @@
 from cmath import pi
 from tkinter import *
+from tkinter import ttk
 import math
 from PIL import Image, ImageTk
 
@@ -56,13 +57,9 @@ def home(target):
   slideshow_base = Canvas(target, width = screen_width * slideshow_ratio, height = screen_height *slideshow_ratio)   
   slideshow_base.configure(bg='blue')   
   
-  # testing centering + image rendering
-  img = PhotoImage(file="Pics/poki-Pics/POKI.png")
-  im = img
   slideshow_base.pack(anchor=CENTER)  
   slideshow_base.place(anchor=CENTER, x=screen_width /2, y=screen_height/2)
   ws.update()
-  slideshow_base.create_image(slideshow_base.winfo_width()//2, slideshow_base.winfo_height()//2, anchor=CENTER, image=im)   
   # a and b values of the slideshow oval
   oval_margin_percentage = .2
   slideshow_a = slideshow_base.winfo_width() * (1-2*oval_margin_percentage)
@@ -86,20 +83,35 @@ def home(target):
     y_dist = (starting_y - image_y + 1) / 60
     decay_constant = 1.15
     print(f"y_dist {y_dist}")
-    image_dimensions = (int(400 * pow(decay_constant, -y_dist)), int(600 * pow(decay_constant, -y_dist)))
+    image_max_x = 300
+    image_max_y = 500
+    image_dimensions = (int(image_max_x * pow(decay_constant, -y_dist)), int(image_max_y * pow(decay_constant, -y_dist)))
     print("%d, %d" % image_dimensions)
 
     resize_image = image.resize( image_dimensions ) 
-    img = ImageTk.PhotoImage(resize_image)
 
     # test the computer locations along the ellipse
 
-    def buttonPressed():
-      print("button Pressed")
-    
-    btn = Button(slideshow_base, text = 'Click Me !', command=buttonPressed, image = img)
-    btn.image = img
+    def buttonPressed(streamer_name):
+      print(f"{streamer_name} Pressed")
+
+    class savedString:
+      def __init__(self, string):
+        print(string)
+        self.string = string
+        
+      def __str__(self):
+        return self.string
+    # btn = None
+    btn = ttk.Button(
+      slideshow_base,
+      text = 'Click Me !',
+      command = lambda:buttonPressed(savedString(streamer_name)),
+      image = ImageTk.PhotoImage(resize_image))
+    # btn.image = img
     btn.place(x=image_x, y=image_y, anchor=CENTER)
+    # btn.c
+    
     streamer_index += 1
  
   ws.mainloop()
