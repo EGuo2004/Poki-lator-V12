@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import ttk
 import math
 from PIL import Image, ImageTk
+from functools import partial
 
 import ourBaseFunc
 errorBound = 0.00001
@@ -72,6 +73,7 @@ def home(target):
   streamer_index = 0
   starting_theta = -3/2 * math.pi # start at downwards angle
   starting_y = slideshow_b/2 * math.sin(delta_theta * streamer_index + starting_theta) + slideshow_base.winfo_height()/2 
+  streamer_buttons = []
   for streamer_name in home_order:
     # find location along the elipse
     image_x = slideshow_a/2 * math.cos(delta_theta * streamer_index + starting_theta) + slideshow_base.winfo_width()/2 
@@ -95,22 +97,20 @@ def home(target):
     def buttonPressed(streamer_name):
       print(f"{streamer_name} Pressed")
 
-    class savedString:
-      def __init__(self, string):
-        print(string)
-        self.string = string
-        
-      def __str__(self):
-        return self.string
+
+    img = ImageTk.PhotoImage(resize_image)
+
     # btn = None
     btn = ttk.Button(
       slideshow_base,
       text = 'Click Me !',
-      command = lambda:buttonPressed(savedString(streamer_name)),
-      image = ImageTk.PhotoImage(resize_image))
-    # btn.image = img
+      command = partial(buttonPressed, streamer_name),
+      image = img,
+    )
+    btn.streamer_name = streamer_name
+    btn.image = img
     btn.place(x=image_x, y=image_y, anchor=CENTER)
-    # btn.c
+    streamer_buttons.append(btn)
     
     streamer_index += 1
  
