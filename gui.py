@@ -1,3 +1,4 @@
+from calendar import c
 from cmath import pi
 from tkinter import *
 from tkinter import ttk
@@ -74,6 +75,7 @@ def home(target):
   starting_theta = -3/2 * math.pi # start at downwards angle
   starting_y = slideshow_b/2 * math.sin(delta_theta * streamer_index + starting_theta) + slideshow_base.winfo_height()/2 
   streamer_buttons = []
+  streamer_images = []
   for streamer_name in home_order:
     # find location along the elipse
     image_x = slideshow_a/2 * math.cos(delta_theta * streamer_index + starting_theta) + slideshow_base.winfo_width()/2 
@@ -81,6 +83,8 @@ def home(target):
     # render image according to streamer name
     print(f"Pics/{streamer_name}-Pics/home.png" )
     image = Image.open(f"Pics/{streamer_name}-Pics/home.png")
+    # (first time)add to streamer_images
+    streamer_images.append(image)
     # Resize the image based on y distance from bottom of screen
     y_dist = (starting_y - image_y + 1) / 60
     decay_constant = 1.15
@@ -88,6 +92,7 @@ def home(target):
     image_max_x = 300
     image_max_y = 500
     image_dimensions = (int(image_max_x * pow(decay_constant, -y_dist)), int(image_max_y * pow(decay_constant, -y_dist)))
+    
     print("%d, %d" % image_dimensions)
 
     resize_image = image.resize( image_dimensions ) 
@@ -97,6 +102,30 @@ def home(target):
     def buttonPressed(streamer_name):
       print(f"{streamer_name} Pressed")
 
+      index = home_order.index(streamer_name)
+      for i in range(len(home_order)):
+        # i is counting from bottom, counter countwise
+        # curr is i offset by where we clicked on
+        curr = index + i
+        if curr >= len(home_order):
+          # wrap around
+          curr -= len(home_order)
+        print(curr)
+        # cur button
+        cur_button = streamer_buttons[i][0]
+        image_dimensions = streamer_buttons[i][1]
+        # change image
+        image = streamer_images[curr]
+        resize_image = image.resize( image_dimensions ) 
+        img =ImageTk.PhotoImage(resize_image)
+        cur_button.configure(image=img)
+        cur_button.image = img 
+ 
+        # change callback
+        cur_button.configure(command = partial(buttonPressed, home_order[curr]))
+
+         
+        
 
     img = ImageTk.PhotoImage(resize_image)
 
@@ -105,12 +134,12 @@ def home(target):
       slideshow_base,
       text = 'Click Me !',
       command = partial(buttonPressed, streamer_name),
-      image = img,
+      image = img,  
     )
     btn.streamer_name = streamer_name
     btn.image = img
     btn.place(x=image_x, y=image_y, anchor=CENTER)
-    streamer_buttons.append(btn)
+    streamer_buttons.append((btn, image_dimensions))
     
     streamer_index += 1
  
