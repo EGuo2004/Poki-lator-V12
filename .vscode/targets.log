@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun  7 14:55:26 2022
+# Make data base, printed on Mon Jun 13 06:10:56 2022
 
 # Variables
 
@@ -23,7 +23,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-673732a6-1ef3-49fe-bf3d-1374cdc32921.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-17fbbf02-bf73-44ae-92e6-81ca9bf99f9a.sock
 # environment
 VSCODE_CWD = /home/jason/Poki-lator-V12
 # default
@@ -35,7 +35,7 @@ QT_ACCESSIBILITY = 1
 # environment
 SNAP_INSTANCE_NAME = code
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/97/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/98/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -57,17 +57,17 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/jason/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = /home/jason/.config/Code/CachedData/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.Y04DN1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.N4NNN1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.104
+GNOME_TERMINAL_SERVICE = :1.208
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -103,13 +103,13 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 2941
+VSCODE_PID = 18069
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/jason-Laptop:@/tmp/.ICE-unix/1593,unix/jason-Laptop:/tmp/.ICE-unix/1593
+SESSION_MANAGER = local/jason-Laptop:@/tmp/.ICE-unix/1616,unix/jason-Laptop:/tmp/.ICE-unix/1616
 # automatic
 *F = $(notdir $*)
 # environment
@@ -137,7 +137,7 @@ GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6721d088_0ded_4c92_a6f4_c418ec28cdd8
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/8f1d615b_354d_43c6_9d31_05782bf32f9e
 # environment
 MAKELEVEL := 0
 # default
@@ -153,9 +153,9 @@ MAKEFILES :=
 # environment
 SNAP_USER_COMMON = /home/jason/snap/code/common
 # environment
-SNAP = /snap/code/97
+SNAP = /snap/code/98
 # environment
-SNAP_REVISION = 97
+SNAP_REVISION = 98
 # environment
 SNAP_REAL_HOME = /home/jason
 # environment
@@ -189,7 +189,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 1611
+SYSTEMD_EXEC_PID = 1634
 # environment
 DISPLAY = :0
 # environment
@@ -201,7 +201,7 @@ MAKE_VERSION := 4.3
 # environment
 DISABLE_WAYLAND = 1
 # environment
-SNAP_DATA = /var/snap/code/97
+SNAP_DATA = /var/snap/code/98
 # environment
 SNAP_CONTEXT = a3DQlJEh6-6eoXZXV6STCWihMxoABKD8Lp6vz66_ASBbKtgfJFt2
 # environment
@@ -223,13 +223,13 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-afb971b8-1.67.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-afb971b8-1.68.0-main.sock
 # environment
 TERM = xterm-256color
 # environment
 SNAP_NAME = code
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/97/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/98/usr/share/glib-2.0/schemas
 # environment
 IM_CONFIG_PHASE = 1
 # default
@@ -237,7 +237,7 @@ IM_CONFIG_PHASE = 1
 # automatic
 <F = $(notdir $<)
 # environment
-SNAP_VERSION = c3511e6c
+SNAP_VERSION = 4af164ea
 # default
 SUFFIXES := 
 # environment
@@ -251,7 +251,7 @@ SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-SNAP_USER_DATA = /home/jason/snap/code/97
+SNAP_USER_DATA = /home/jason/snap/code/98
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -267,9 +267,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66309, inode 4850266): 21 files, no impossibilities.
+# . (device 66309, inode 4850266): 22 files, no impossibilities.
 
-# 21 files, no impossibilities in 1 directories.
+# 22 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -290,7 +290,6 @@ main.py:
 #  File has been updated.
 #  Successfully updated.
 
- 
 all: main.py
 #  Command line target.
 #  Implicit rule search has not been done.
@@ -308,6 +307,7 @@ all: main.py
 # + := main.py
 # automatic
 # % := 
+ 
 # automatic
 # ^ := main.py
 # automatic
@@ -340,12 +340,12 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 266 B / avg = 10 B
-# current buf: size = 8162 B / used = 266 B / count = 26 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 274 B / avg = 10 B
+# current buf: size = 8162 B / used = 274 B / count = 27 / avg = 10 B
 
-# strcache performance: lookups = 34 / hit rate = 23%
+# strcache performance: lookups = 35 / hit rate = 22%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=0/34=0%
-# Finished Make data base on Tue Jun  7 14:55:26 2022
+# Load=27/8192=0%, Rehash=0, Collisions=0/35=0%
+# Finished Make data base on Mon Jun 13 06:10:56 2022
 
  
