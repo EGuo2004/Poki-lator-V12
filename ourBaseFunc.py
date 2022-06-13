@@ -1,7 +1,7 @@
 errorBound = 0.000001
 params = {
     "squareRoot": [float],
-    "factorial": [float],
+    "factorial": [int],
     "e": [float],
     "ln":[float],
     "log":[float, float],

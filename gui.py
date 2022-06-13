@@ -23,9 +23,12 @@ home_order = list(streamers.keys())
 
 def init():
   global ws
+
   ws = Tk()
   ws.title("Poki-lator")
   # ws.attributes('-fullscreen', True)
+  scrollbar = Scrollbar ( ws)
+  scrollbar.pack( side = RIGHT, fill = Y )
 
   #Get the current screen width and height of computer // not accurate
   global screen_width, screen_height

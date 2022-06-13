@@ -23,7 +23,7 @@ class general_function:
         self.canvas = Canvas(target, width=w*.75, height=h*.85)
         self.canvas.place(x=0, y=0, anchor=NW)
         function_image = Image.open(f"Pics/functions/{self.file.__name__}/{self.name}.png")
-        function_image.resize((int(w*.75),int(h*.40)))
+        function_image.resize((int(w*.55),int(h*.40)))
         img = ImageTk.PhotoImage(function_image)
         label = ttk.Label(self.canvas, image = img)
         label.image = img
@@ -49,7 +49,7 @@ class general_function:
         
         # create button that willl run the function
         go_image = Image.open(f"Pics/general/go.png")
-        go_image.resize((int(w*.25),int(h*.25)))
+        go_image = ImageOps.fit(go_image,(int(w*.25), int(h*.25)))
 
         img = ImageTk.PhotoImage(go_image)
         go = ttk.Button(parent_inputs, image = img, command=self.calc)
@@ -88,7 +88,7 @@ def create_general_function(person, file, func, target):
 
     # build function
     this_fun = general_function(file, func)
-    
+
     # render
     this_fun.render(target, size[0]/2, size[1]/2, size[0], size[1])
     
