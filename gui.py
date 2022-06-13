@@ -100,7 +100,7 @@ def home(target):
     image_dimensions = (image_width, image_height)
     name_tage = Label(slideshow_base, text=streamer_name, width=len(streamer_name), height=1)
     if (first):
-      name_tage.place(anchor=CENTER, x=image_x - image_width/2 , y=image_y)
+      name_tage.place(anchor=CENTER, x=image_x, y=image_y - image_height*5/6)
       name_tage.config(state=DISABLED)
 
     print("%d, %d" % image_dimensions)
@@ -121,6 +121,7 @@ def home(target):
     # test the computer locations along the ellipse
 
     def buttonPressed(streamer_name):
+      __first = True
       print(f"{streamer_name} Pressed")
 
       index = home_order.index(streamer_name)
@@ -155,11 +156,16 @@ def home(target):
         cur_button.image = img 
 
         # change callback
-        cur_button.configure(command = partial(buttonPressed, home_order[curr]))
-        cur_button.streamer_name = home_order[curr]
+
+        if (__first):
+          cur_button.configure(command = partial(listFunctions.go, streamer_name))
+        else:
+          cur_button.configure(command = partial(buttonPressed, home_order[curr]))
+          cur_button.streamer_name = home_order[curr]
         # change text
         mytext["text"] = home_order[curr]
         mytext["width"] = len(home_order[curr])
+        __first = False
 
 
     img = ImageTk.PhotoImage(resize_image)
@@ -183,21 +189,24 @@ def home(target):
       )
 
 
-      left_button.place(x= image_x-image_max_x,y= image_y)
+      left_button.place(anchor=CENTER,x= image_x-image_max_x,y= image_y)
       left_button.image = left_image
-      right_button.place(x= image_x + image_max_x,y= image_y)
+      right_button.place(anchor=CENTER,x= image_x + image_max_x,y= image_y)
       right_button.image = right_image
       directional_arrows.append((left_button,left_offset))
       directional_arrows.append((right_button, right_offset))
 
 
     # btn = None
+
     btn = ttk.Button(
       slideshow_base,
       text = 'Click Me !',
       command = partial(buttonPressed, streamer_name),
       image = img,  
     )
+    if (first):
+      btn.configure(command = partial(listFunctions.go, streamer_name))
     btn.streamer_name = streamer_name
     btn.image = img
     btn.place(x=image_x, y=image_y+slideshow_offset_y, anchor=CENTER)
@@ -207,14 +216,17 @@ def home(target):
     first = False
     streamer_index += 1
   # build the status box
-  status_box = Canvas(slideshow_base, width="25 vw", height="10vh")
-  status_box.pack(anchor=S)
-  cur_name_label = Label(status_box, text=home_order[0], width=len(home_order[0]), height=1)
-  cur_name_label.grid(row=0, column=0)
-  go_image = Image.open(f"Pics/home/go.png")
-  go_button = Button(status_box, command= partial(listFunctions.go, home_order[0]))
+  # status_box = Canvas(target, width=1000, height=300, bg='green')
+  # status_box.place(x=starting_x, y=starting_y + image_max_y /2, anchor=CENTER)
+  
+  # cur_name_label = Label(status_box, text=home_order[0], width=len(home_order[0]), height=1)
+  # cur_name_label.grid(row=0, column=0, sticky='s')
+  # go_image = Image.open(f"Pics/general/go.png")
+  # go_image= go_image.resize((300, 300))
+  # go_button = Button(status_box, command= partial(listFunctions.go, home_order[0]))
 
-
+  # go_button.grid(column=1, row=0, sticky='S')
+  
   ws.mainloop()
 
   
