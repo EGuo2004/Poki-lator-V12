@@ -1,3 +1,15 @@
+params = {
+  "sin": [float],
+  "cos": [float],
+  "tan" :[float],
+  "sec" : [float],
+  "cot" : [float],
+  "piExact": [int],
+}
+
+broken = {
+}
+
 pi = 3.14159265359 
 #how close to 0 that it is treated as 0
 radius_of_0 = 10**-10

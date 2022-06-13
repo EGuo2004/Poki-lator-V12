@@ -1,4 +1,4 @@
-
+errorBound = 0.000001
 params = {
     "squareRoot": [float],
     "factorial": [float],
@@ -7,7 +7,8 @@ params = {
     "log":[float, float],
   }
 
-def squareRoot(x, errorBound):
+broken= {}
+def squareRoot(x):
   #gives square root with 5 places of accuracy
   i = 1
   while((i+1)*(i*1) < x):

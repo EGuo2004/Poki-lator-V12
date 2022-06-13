@@ -1,3 +1,12 @@
+params = {
+  "arctan": [float],
+  "arcsin": [float],
+}
+
+broken = {
+  "arcsin":None,
+}
+
 #x, y
 #x: value that we want to find theta for
 #y: to what degree of specifity
@@ -18,7 +27,8 @@ def arctan(x,y=5):
 def arcsin(x, y=5):
   error_bound = 10**(-1 * abs(y))
   sum = 0
-  while ()
+  while (True):
+    pass
 
 
   

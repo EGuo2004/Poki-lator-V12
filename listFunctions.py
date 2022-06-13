@@ -6,8 +6,6 @@ from PIL import Image, ImageTk, ImageOps, ImageDraw
 from functools import partial
 import run_function
 
-from functools import partial
-
 from run_function import general_function
 current_function = None
 def go(streamer_name, target, ws):
@@ -33,7 +31,9 @@ def go(streamer_name, target, ws):
         import ourTrigFunc as file
 
     # create table with image
-    functions = [f for _, f in file.__dict__.items() if callable(f)]
+    def workingfunc(f):
+        return callable(f) and not f.__name__ in file.broken
+    functions = [f for _, f in file.__dict__.items() if workingfunc(f)]
     print(functions)
     temp =[]
     index = 0

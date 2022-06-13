@@ -212,7 +212,6 @@ def home(target):
     btn.place(x=image_x, y=image_y+slideshow_offset_y, anchor=CENTER)
     streamer_buttons.append((btn, image_dimensions, name_tage))
 
-    
     first = False
     streamer_index += 1
   # build the status box

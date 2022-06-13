@@ -1,3 +1,19 @@
+import string
+
+
+params = {
+  "gcd": [float, float],
+  "lcm": [float, float],
+  "mean": [list],
+  "median":[list],
+  "nCr": [int, int],
+  "nPr": [int, int],
+  "sigma": [string, int, int]
+}
+
+broken = {
+}
+
 import ourBaseFunc as BF
 import ourCalcFunc as CF
 def gcd(a, b):

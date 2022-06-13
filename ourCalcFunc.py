@@ -1,4 +1,19 @@
+from tokenize import String
+from ourCalcFuncHelper import calculateFunction
 num_of_steps = 100
+
+params = {
+  "nDerivative": [String],
+  "RiemannSum": [String, String, int, int],
+  "TrapezoidalSum": [String, int, int],
+  "euler": [String, int, int],
+  "zerofinder": [String, int, int, int]
+}
+
+broken = {
+  "euler":None,
+  "zerofinder": None,
+}
 
 def nDerivative(function, x):
   errorBound = 10 ** -5
@@ -23,16 +38,7 @@ def RiemannSum(function, direction, start, end):
   return val
  
 
-#calculate function 
-#@param 
-def calculateFunction(function, x):
-  return eval(function)
 
-'''@param // test this later
-function : string representation of function
-start : start of sum
-end : end of sum
-'''
 def TrapezoidalSum(function, start,end):
   stepsize = (end-start)/num_of_steps
   sum = 0
@@ -60,7 +66,7 @@ def zerofinder(function, left, right, guess):
   cur_left = guess
   cur_right = guess
   guessIsPos = calculateFunction(function, guess) < 0 
-  temp = None;
+  temp = None
   for i in range(num_of_steps):
     cur_left += leftstep
     cur_right += rightstep
