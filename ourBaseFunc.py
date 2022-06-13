@@ -1,3 +1,12 @@
+
+params = {
+    "squareRoot": [float],
+    "factorial": [float],
+    "e": [float],
+    "ln":[float],
+    "log":[float, float],
+  }
+
 def squareRoot(x, errorBound):
   #gives square root with 5 places of accuracy
   i = 1
@@ -14,7 +23,7 @@ def factorial(x):
     sum *= i
   return sum
 
-def e(x=1):
+def e(x):
   output = 0
   for i in range(50):
     output += (x**i)/factorial(i)

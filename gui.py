@@ -158,7 +158,7 @@ def home(target):
         # change callback
 
         if (__first):
-          cur_button.configure(command = partial(listFunctions.go, streamer_name))
+          cur_button.configure(command = partial(listFunctions.go, streamer_name, target, ws))
         else:
           cur_button.configure(command = partial(buttonPressed, home_order[curr]))
           cur_button.streamer_name = home_order[curr]
@@ -206,7 +206,7 @@ def home(target):
       image = img,  
     )
     if (first):
-      btn.configure(command = partial(listFunctions.go, streamer_name))
+      btn.configure(command = partial(listFunctions.go, streamer_name, target, ws))
     btn.streamer_name = streamer_name
     btn.image = img
     btn.place(x=image_x, y=image_y+slideshow_offset_y, anchor=CENTER)
