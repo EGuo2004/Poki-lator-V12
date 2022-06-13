@@ -3,7 +3,7 @@ num_of_steps = 100
 
 params = {
   "nDerivative": [str],
-  "RiemannSum": [str, str, int, int],
+  "RiemannSum": [str, str, int, int], 
   "TrapezoidalSum": [str, int, int],
   "euler": [str, int, int],
   "zerofinder": [str, int, int, int]
@@ -12,6 +12,7 @@ params = {
 broken = {
   "euler":None,
   "zerofinder": None,
+  "calculateFunction":None,
 }
 
 def nDerivative(function, x):
