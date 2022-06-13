@@ -1,13 +1,12 @@
-from tokenize import String
 from ourCalcFuncHelper import calculateFunction
 num_of_steps = 100
 
 params = {
-  "nDerivative": [String],
-  "RiemannSum": [String, String, int, int],
-  "TrapezoidalSum": [String, int, int],
-  "euler": [String, int, int],
-  "zerofinder": [String, int, int, int]
+  "nDerivative": [str],
+  "RiemannSum": [str, str, int, int],
+  "TrapezoidalSum": [str, int, int],
+  "euler": [str, int, int],
+  "zerofinder": [str, int, int, int]
 }
 
 broken = {
